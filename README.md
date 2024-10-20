@@ -109,7 +109,9 @@ For LDS, it is advised that the minimum size of Azure VM is Standard_B2s. The VM
 
 Your LDS instance is now fully deployed. Next, we will configure it by creating new containers, partitions, groups etc.
 
-## ADSI
+## ADSI Edit (configuring your LDS instance)
+
+ADSI Edit (Active Directory Service Interfaces Editor) is a Microsoft Management Console (MMC) snap-in tool that allows administrators to view and edit the objects and attributes in an Active Directory (AD) environment. It provides low-level access to the directory service and is often used for tasks that cannot be performed using the standard Active Directory tools.
 
 1) On your server, navigate to Windows Administrative Tools > ADSI Edit
 <img src="/assets/ADSI%201.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
@@ -138,6 +140,8 @@ Your LDS instance is now fully deployed. Next, we will configure it by creating 
 9) You will see your new container now on your LDS instance. Repeat steps 6 to 8 to create containers, groups etc. I have created the below for now.
 <img src="/assets/ADSI%209.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
 
+Your LDS instance is now set up. But don't worry, you can always change, add or delete containers, partitions, groups etc, through ADSI Edit.
 
+##
 
 
