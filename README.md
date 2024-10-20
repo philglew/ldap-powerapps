@@ -42,5 +42,21 @@ For LDS, it is advised that the minimum size of Azure VM is Standard_B2s. The VM
 2) Select 'Manage' on the top right, and click 'Add/Remove Features'.
 
 <img src="/assets/LDS%201.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/LDS%202.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/LDS%203.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/LDS%204.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/LDS%205.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/LDS%206.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/LDS%207.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/LDS%208.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/LDS%209.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/LDS%2010.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/LDS%2011.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/LDS%2012.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/LDS%2013.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/LDS%2014.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/LDS%2015.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/LDS%2016.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/LDS%2017.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
 
 
