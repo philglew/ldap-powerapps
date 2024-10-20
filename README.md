@@ -41,27 +41,68 @@ For LDS, it is advised that the minimum size of Azure VM is Standard_B2s. The VM
 
 2) Select 'Manage' on the top right, and click 'Add/Remove Features'.
 
+3) You will be shown the below popup. You can click Next.
 <img src="/assets/LDS%201.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+4) Select 'Role-based or feature-based installation'
 <img src="/assets/LDS%202.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+5) Leave the destination server as-is, ensuring that your Server (the one you are working on) is selected.
 <img src="/assets/LDS%203.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+6) Tick 'Active Directory Lightweight Directory Services', and the second pop-up box will appear. Check 'Include management tools (if applicable)' if not already selected, and click 'Add Features'
 <img src="/assets/LDS%204.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+7) On the Select features screen, just click Next.
 <img src="/assets/LDS%205.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+8) On the Confirmation screen, click 'Install'
 <img src="/assets/LDS%206.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+9) Your LDS instance is installing, as per below.
 <img src="/assets/LDS%207.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+10) When installed, you will see the below screen. You can click Close.
 <img src="/assets/LDS%208.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+11) In Server Manager, click Tools > Active Directory Lightweight Directory Services Setup Wizard
 <img src="/assets/LDS%209.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+12) The wizard will start. Click Next.
 <img src="/assets/LDS%2010.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+13) For this solution, we are creating a brand new unique instance of LDS. If you wish to replicate an existing instance, select that option and follow the wizard through.
 <img src="/assets/LDS%2011.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+14) Give your unique LDS instance a name and a description.
 <img src="/assets/LDS%2012.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+15) Note the following window regarding ports. For this solution, we are leaving these as the default, as we will not be installing ADDS on this server. Click Next.
 <img src="/assets/LDS%2013.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+16) Select 'Yes, create an application directory partition' and give a partition name. It is recommended that you do this at the 'DC' level, rather than the 'CN' level; so consider this to be your top-level domain partition. 
 <img src="/assets/LDS%2014.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+17) In the File Locations screen, leave this as-is and click Next.
 <img src="/assets/LDS%2015.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+18) In the Service Account Selection screen, choose 'This account'. Click Browse and enter your Administrator username and click 'Check'. Your username will be found. Enter the password for this account. This is the same username and password you used to log-onto the Server VM. Click Next.
 <img src="/assets/LDS%2016.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+19) Select 'Currently logged on user...' and click Next
 <img src="/assets/LDS%2017.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+20) On the importing LDIF files screen, ensure that the following are checked. These are needed later on in the solution, and to give you the ability to create Users on this LDS instance which, by default, is not possible unless we deploy the LDIF file for it now.
 <img src="/assets/LDS%2018.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
 <img src="/assets/LDS%2019.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+21) On the Ready to Install screen, click Next
 <img src="/assets/LDS%2020.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+22) The LDS instance will be installing and configuring
 <img src="/assets/LDS%2021.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+23) When complete, click the Refresh icon in Server Manager, and your new AD LDS instance will appear like below.
 <img src="/assets/LDS%2022.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
 
 ## ADSI
