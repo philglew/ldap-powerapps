@@ -41,5 +41,5 @@ For LDS, it is advised that the minimum size of Azure VM is Standard_B2s. The VM
 
 2) Select 'Manage' on the top right, and click 'Add/Remove Features'.
 
-![LDS1](/assets/LDS 1.png?raw=true "LDS 1")
+![LDS1](/assets/LDS%201.png?raw=true "LDS 1")
 
