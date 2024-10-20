@@ -210,7 +210,7 @@ Here are some Runbooks I have written for the most common actions we will want o
 1) [List all LDS Users](listldsusers.ps1)  - this Runbook lists all LDS users (Username, Email, Company and Group Memberships) and snapshots them into a Dataverse table, for fast and easy visualisation in-app and via dashboard. The Dataverse authentication credentials are never exposed in code; rather, they are utilised at runtime from the Azure Key Vault.
 2) [Add a new user](createuser.ps1)  - this Runbook adds a new User to the LDS, using the input of Username, Email, Company and Group Membership, but can be customised to add additional parameters and attributes. 
 3) [Delete user](deleteuser.ps1) - this Runbook 'deletes' a User on the LDS, by moving their account to a 'Deleted Users' container.
-4) Unlock a user account - this Runbook unlocks a specific User on the LDS, and returns success output to the app.
+4) [Unlock a user account](unlockuser.ps1) - this Runbook unlocks a specific User on the LDS, and returns success output to the app.
 5) Reset a user account password - this Runbook resets a User password to a randomly-generated string of characters and numbers, and returns them to the administrator in the app. 
 
 
