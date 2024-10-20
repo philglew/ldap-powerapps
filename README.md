@@ -13,7 +13,7 @@ In this repo, I am showing you how to deploy the required Azure services via Azu
 ## Contents
 
  - [Deploying the Virtual Machine](#deploying-the-virtual-machine) 
- - [Dependencies Title](#dependencies-title)
+ - [Deploying the LDS instance on the Virtual Machine](#deploying-the-lds-instance-on-the-virtual-machine)
 
 ## Deploying the Virtual Machine
 
