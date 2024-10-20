@@ -82,7 +82,7 @@ For LDS, it is advised that the minimum size of Azure VM is Standard_B2s. The VM
 15) Note the following window regarding ports. For this solution, we are leaving these as the default, as we will not be installing ADDS on this server. Click Next.
 <img src="/assets/LDS%2013.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
 
-16) Select 'Yes, create an application directory partition' and give a partition name. It is recommended that you do this at the 'DC' level, rather than the 'CN' level; so consider this to be your top-level domain partition. 
+16) Select 'Yes, create an application directory partition' and give a partition name. It is recommended that you do this at the 'DC' level, rather than the 'CN' level; so consider this to be your top-level domain partition. **Note: Ensure you copy the directory partition you type here, as we will need it later.**
 <img src="/assets/LDS%2014.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
 
 17) In the File Locations screen, leave this as-is and click Next.
@@ -107,16 +107,35 @@ For LDS, it is advised that the minimum size of Azure VM is Standard_B2s. The VM
 23) When complete, click the Refresh icon in Server Manager, and your new AD LDS instance will appear like below.
 <img src="/assets/LDS%2022.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
 
+Your LDS instance is now fully deployed. Next, we will configure it by creating new containers, partitions, groups etc.
+
 ## ADSI
 
+1) On your server, navigate to Windows Administrative Tools > ADSI Edit
 <img src="/assets/ADSI%201.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+2) Under the Actions pane on the right-hand side, click 'More Actions' and select 'Connect to'
 <img src="/assets/ADSI%202.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+3) Give your new LDS instance a friendly name; here, I have just called it 'LDS Instance' but you might want to call it something more unique. For 'Connection Point', select 'Select or type a Distinguished Name or Naming Context' and enter the partition path you created in step 16 above. For 'Computer', use the 389 port, by typing 'localhost:389'. Click OK.
 <img src="/assets/ADSI%203.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+4) Your LDS instance will appear like below. 
 <img src="/assets/ADSI%204.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+5) Double click it, and then double click the automatically created 'container', until you see the below. By default, a Roles container, an NTDS Quotas class and a LostAndFound class will have been created.
 <img src="/assets/ADSI%205.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+6) Right click in the whitespace below 'CN=Roles' and select New > Object. Select the 'container' type and click Next. Give this the Value of 'Groups'; this will become the container for the Groups you want to set up. 
 <img src="/assets/ADSI%206.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+7) Click Next. Here, you can simply click Finish. Alternatively, you can provide many more attributes you want to assign to this container, by clicking 'More Attributes'.
 <img src="/assets/ADSI%207.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+8) If you click More Attributes, you can select the one you want to amend and type is value in the Edit Attribute field. You can edit as many as you like. Click Finish.
 <img src="/assets/ADSI%208.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
+9) You will see your new container now on your LDS instance. Repeat steps 6 to 8 to create containers, groups etc. I have created the below for now.
 <img src="/assets/ADSI%209.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
 
 
