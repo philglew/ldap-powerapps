@@ -67,6 +67,15 @@ For LDS, it is advised that the minimum size of Azure VM is Standard_B2s. The VM
 ## ADSI
 
 <img src="/assets/ADSI%201.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/ADSI%202.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/ADSI%203.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/ADSI%204.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/ADSI%205.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/ADSI%206.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/ADSI%207.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/ADSI%208.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+<img src="/assets/ADSI%209.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
+
 
 
 
