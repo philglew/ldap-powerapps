@@ -193,6 +193,14 @@ This solution uses PowerShell 5.1.
 6) Click 'Review + Create' and then 'Create'
 7) You will be presented with a blank runbook. For now, you can leave this as-is.
 
+8) You now need to associate your Server VM with the Automation Account so that Runbooks which are executed are taken on the Server VM itself; this is known as a Hybrid Worker model.
+9) Click 'Hybrid worker groups' under the Process Automation blade.
+10) Click '+ Create hybrid worker group'
+11) Give the group a name (e.g. LDAPHybridGroup)
+12) You can choose either Default or Custom, relating to 'Use Hybrid Worker Credentials'. If you choose 'Custom', you must provide the credentials which your Runbooks will run under on the Server VM.
+13) On the 'Hybrid Workers' tab, click '+ Add Machine' and select your Server VM. Click Review + Create, and then Create. 
+14) The Hybrid Worker extensions needed to run tasks on the Server VM are now automatically deployed. 
+
 Here are some Runbooks I have written for the most common actions we will want our Power App to be able to 'execute':
 
 1) [List all LDS Users](listldsusers.ps1)  - this Runbook lists all LDS users (Username, Email, Company and Group Memberships) and snapshots them into a Dataverse table, for fast and easy visualisation in-app and via dashboard.
