@@ -10,6 +10,11 @@ This repo lays out everything you need to
 
 In this repo, I am showing you how to deploy the required Azure services via Azure Portal, so that you are able to understand the configuration selections in human-friendly screenshots, rather than pages of Terraform/ARM/BICEP code which are overwhelming to navigate. Of course, all services deployed and configured can be achieved via pipeline deployment using any of the aforementioned template deployment methods. 
 
+## Contents
+
+ - [Deploying the Virtual Machine](#deploying-the-virtual-machine) 
+ - [Dependencies Title](#dependencies-title)
+
 ## Deploying the Virtual Machine
 
 For LDS, it is advised that the minimum size of Azure VM is Standard_B2s. The VM must be deployed with Windows Server Datacenter; and the latest version (Windows Server Datacenter 2022) is used in this walkthrough. 
