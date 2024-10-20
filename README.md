@@ -203,7 +203,9 @@ This solution uses PowerShell 5.1.
 11) Give the group a name (e.g. LDAPHybridGroup)
 12) You can choose either Default or Custom, relating to 'Use Hybrid Worker Credentials'. If you choose 'Custom', you must provide the credentials which your Runbooks will run under on the Server VM.
 13) On the 'Hybrid Workers' tab, click '+ Add Machine' and select your Server VM. Click Review + Create, and then Create. 
-14) The Hybrid Worker extensions needed to run tasks on the Server VM are now automatically deployed. 
+14) The Hybrid Worker extensions needed to run tasks on the Server VM are now automatically deployed.
+
+### Sample Runbooks
 
 Here are some Runbooks I have written for the most common actions we will want our Power App to be able to 'execute':
 
@@ -213,5 +215,7 @@ Here are some Runbooks I have written for the most common actions we will want o
 4) [Unlock a user account](unlockuser.ps1) - this Runbook unlocks a specific User on the LDS, and returns success output to the app.
 5) [Reset a user password](resetuserpassword.ps1) - this Runbook resets a User password to a randomly-generated string of characters and numbers, and returns them to the administrator in the app. 
 
+## Power App
 
+You can install the Power App by downloading and importing the .zip file from this repository. You are free to configure it how you like under the GNU License. 
 
