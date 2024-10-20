@@ -190,7 +190,7 @@ This solution uses PowerShell 5.1.
 
 Here are some Runbooks I have written for the most common actions we will want our Power App to be able to 'execute':
 
-1) List all LDS Users
+1) [List all LDS Users](listldsusers.ps1)
 2) Add a new user
 3) Delete a user
 4) Unlock a user account
