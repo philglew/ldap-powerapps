@@ -4,9 +4,9 @@
 This repo lays out everything you need to 
 1) Deploy an instance of Active Directory LDS (Lightweight Directory Services) on an Azure Virtual Machine.
 2) Deploy and configure an Azure Automation Account to interact with this instance of LDS via PowerShell Runbooks.
-3) How to build and configure a canvas Power App to provide a modern, customisable and feature-rich GUI for LDAP user, group and role administration.
+3) How to build and configure a canvas Power App to provide a modern, customisable and feature-rich GUI for LDAP user, group and role administration, also using Microsoft Dataverse, via Azure Key Vault.
 4) How to build and configure Power Automate flows which, triggered from the Power App, execute Runbooks to apply updates and changes to the LDS instance.
-5) Log Analytics and dashboarding for your LDS instance in Power BI, using Microsoft Dataverse, via Azure Key Vault.
+5) Log Analytics and dashboarding for your LDS instance in Power BI (coming soon)
 
 In this repo, I am showing you how to deploy the required Azure services via Azure Portal, so that you are able to understand the configuration selections in human-friendly screenshots, rather than pages of Terraform/ARM/BICEP code which are overwhelming to navigate. Of course, all services deployed and configured can be achieved via pipeline deployment using any of the aforementioned template deployment methods. 
 
