@@ -15,6 +15,9 @@ In this repo, I am showing you how to deploy the required Azure services via Azu
  - [Deploying the Virtual Machine](#deploying-the-virtual-machine) 
  - [Deploying the LDS instance on the Virtual Machine](#deploying-the-lds-instance-on-the-virtual-machine)
  - [ADSI Edit configuring your LDS instance](#adsi-edit-configuring-your-lds-instance)
+ - [Deploying an Azure Automation Account](#deploying-an-azure-automation-account)
+ - [Create a Dataverse table and Service Principal for data snapshots of your LDS instance](#create-a-dataverse-table-and-service-principal-for-data-snapshots-of-your-lds-instance)
+ - [Creating your automation Runbooks](#creating-your-automation-runbooks)
 
 ## Deploying the Virtual Machine
 
