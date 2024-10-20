@@ -1,6 +1,6 @@
 <img src="/assets/listusers.png?raw=true" alt="LDS 1" title="LDS 1" width="60%">
 
-# Lightweight Directory Access Protocol (LDAP) via the Power Platform  
+# Lightweight Directory Access Protocol (LDAP) with LDS via the Power Platform  
 This repo lays out everything you need to 
 1) Deploy an instance of Active Directory LDS (Lightweight Directory Services) on an Azure Virtual Machine.
 2) Deploy and configure an Azure Automation Account to interact with this instance of LDS via PowerShell Runbooks.
