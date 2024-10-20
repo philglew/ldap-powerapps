@@ -1,6 +1,23 @@
-param ( 
+param (  
     [string]$ldapServer = "localhost:389" 
 )
+
+Import-Module Az.KeyVault
+
+function Get-SecretFromKeyVault {
+    param (
+        [string]$vaultName,
+        [string]$secretName
+    )
+    $secret = Get-AzKeyVaultSecret -VaultName $vaultName -Name $secretName
+    return $secret.SecretValueText
+}
+
+$vaultName = "ldskeyvaultmvp"  # Your Key Vault name
+$TenantId = Get-SecretFromKeyVault -vaultName $vaultName -secretName "tenantid"
+$ClientId = Get-SecretFromKeyVault -vaultName $vaultName -secretName "clientid"
+$ClientSecret = Get-SecretFromKeyVault -vaultName $vaultName -secretName "secret"
+$Resource = "https://org76d778ff.crm11.dynamics.com"  # Your Dataverse URL
 
 function Get-DataverseAccessToken {
     param (
@@ -23,13 +40,6 @@ function Get-DataverseAccessToken {
     return $response.access_token
 }
 
-# Authentication parameters
-$TenantId = "REDACTED"
-$ClientId = "REDACTED"
-$ClientSecret = "REDACTED"
-$Resource = "https://org76d778ff.crm11.dynamics.com"  # Replace with your Dataverse URL
-
-# Obtain access token
 $accessToken = Get-DataverseAccessToken -TenantId $TenantId -ClientId $ClientId -ClientSecret $ClientSecret -Resource $Resource
 
 function Get-LDAPUsers {
@@ -70,13 +80,10 @@ function Get-LDAPUsers {
                 Groups    = $groups -join ', '
             }
 
-            # Dataverse entity (table) logical name
             $entityName = "crf98_table1"  # Replace with your actual table logical name
 
-            # Construct the API endpoint
             $apiUrl = "$Resource/api/data/v9.2/$($entityName)s"
 
-            # Prepare the user data for Dataverse
             $userData = @{
                 "crf98_username" = $userObject.Username
                 "crf98_email"    = $userObject.Email
@@ -84,10 +91,7 @@ function Get-LDAPUsers {
                 "crf98_groups"   = $userObject.Groups
             }
 
-            # Convert the data to JSON
             $userDataJson = $userData | ConvertTo-Json -Depth 3
-
-            # Send a POST request to create a new record
             try {
                 $response = Invoke-RestMethod -Method Post -Uri $apiUrl -Headers @{
                     "Authorization" = "Bearer $accessToken"
