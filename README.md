@@ -14,6 +14,7 @@ In this repo, I am showing you how to deploy the required Azure services via Azu
 
  - [Deploying the Virtual Machine](#deploying-the-virtual-machine) 
  - [Deploying the LDS instance on the Virtual Machine](#deploying-the-lds-instance-on-the-virtual-machine)
+ - [ADSI Edit configuring your LDS instance](#adsi-edit-configuring-your-lds-instance)
 
 ## Deploying the Virtual Machine
 
@@ -114,7 +115,7 @@ For LDS, it is advised that the minimum size of Azure VM is Standard_B2s. The VM
 
 Your LDS instance is now fully deployed. Next, we will configure it by creating new containers, partitions, groups etc.
 
-## ADSI Edit (configuring your LDS instance)
+## ADSI Edit configuring your LDS instance
 
 ADSI Edit (Active Directory Service Interfaces Editor) is a Microsoft Management Console (MMC) snap-in tool that allows administrators to view and edit the objects and attributes in an Active Directory (AD) environment. It provides low-level access to the directory service and is often used for tasks that cannot be performed using the standard Active Directory tools.
 
