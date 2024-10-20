@@ -6,7 +6,7 @@ This repo lays out everything you need to
 2) Deploy and configure an Azure Automation Account to interact with this instance of LDS via PowerShell Runbooks.
 3) How to build and configure a canvas Power App to provide a modern, customisable and feature-rich GUI for LDAP user, group and role administration.
 4) How to build and configure Power Automate flows which, triggered from the Power App, execute Runbooks to apply updates and changes to the LDS instance.
-5) Log Analytics and dashboarding for your LDS instance in Power BI.
+5) Log Analytics and dashboarding for your LDS instance in Power BI, using Microsoft Dataverse.
 
 In this repo, I am showing you how to deploy the required Azure services via Azure Portal, so that you are able to understand the configuration selections in human-friendly screenshots, rather than pages of Terraform/ARM/BICEP code which are overwhelming to navigate. Of course, all services deployed and configured can be achieved via pipeline deployment using any of the aforementioned template deployment methods. 
 
@@ -142,6 +142,59 @@ ADSI Edit (Active Directory Service Interfaces Editor) is a Microsoft Management
 
 Your LDS instance is now set up. But don't worry, you can always change, add or delete containers, partitions, groups etc, through ADSI Edit.
 
-##
+## Deploying an Azure Automation Account
+
+1) In Azure Portal, use your existing Resource Group where your Server VM is, or create a new one.
+2) From the Marketplace, search for 'Automation' and select it.
+3) Give your Automation Account a name. Ensure that the account is being deployed into the same region as your Server VM; here, I always use UK South.
+4) In the Advanced blade, ensure that System assigned is ticket under Managed Identities.
+5) Under the Networking blade, you can configure the Automation Account to run under Public or Private Access. For Private Access, you will be asked to create a new Private Endpoint. For this solution, I am allowing Public access. All this means is that public IP addresses are allowed to try to connect to the Automation Account, not that the Automation Account is literally open for public use.
+6) Click 'Review + Create'
+7) Wait for your Automation Account to deploy. This can take up to 10 minutes.
+
+## Create a Dataverse table and Service Principal for data snapshots of your LDS instance
+
+Communicating via Runbooks to your LDS instance on your Server VM is fast and, unless you execute Runbooks against it extremely frequently, is a free model. However, whilst fast, it is not immediate and, when we look at the Power App later on, you will want a snapshot of the recent state of LDS Users which can be queried more effectively, plus, which can be used in dashboarding in Power BI. 
+
+1) Navigate to a Power Apps environment to which you have System Administrator permissions.
+2) Create a new Dataverse table called whatever you like.
+3) Create Text columns for the properties which you will want to display in the List Users function of your Power App. For example, this could be Username, Email, Company and Group Memberships, and these are the four key attributes which I use in this solution, but you can create as many as you like.
+4) In Azure Portal, go to Application Registrations and create a new Application Registration. Give this a meaningful name (e.g. 'LDS Dataverse Service Principal') and click Register.
+5) Under the Manage blade, select 'Certificates and secrets'.
+6) Click '+ New client secret', enter a description, and select the expiry time for this secret. Click Add.
+7) **Copy the Value of the newly created secret and paste this somewhere safe for the time being - if you do not copy it now, you will not be able to get it again later**
+8) Click the 'API permissions' blade, and select '+ Add a permission'.
+9) Select 'Dynamics CRM' under the Microsoft APIs tab, and check the user_impersonation permission.
+10) Click 'Add permission'
+11) If required, click 'Grant admin consent for...' (you should not need to do this for this permission, but, if you do and cannot click this button, you must ask a Global Administrator to consent to this permission).
+12) Click the Overview blade, and copy the Application (client) ID, and the Directory (tenant) ID, and paste them alongside your secret's Value for now. 
+13) In Power Platform Admin Centre, select the environment where you created your Dataverse table.
+14) Under 'Users', click 'See all'
+15) At the top, select 'app users list'
+16) Click '+ New app user'
+17) In the flyout, select '+ Add an app' and select the Service Principal you have just created.
+18) Select the business unit (the default one)
+19) Under Security roles, click the pencil icon and select the Basic User, and, System Customizer, security roles.
+
+## Creating your automation Runbooks
+
+This solution uses PowerShell 5.1.
+
+1) Navigate to your Automation Account, and select Runbooks under the Process Automation blade.
+2) Select '+ Create a Runbook'
+3) Give your runbook a name - for example 'List all LDS users'.
+4) Under Runbook Type, select PowerShell
+5) Under Runtime version, select 5.1.
+6) Click 'Review + Create' and then 'Create'
+7) You will be presented with a blank runbook. For now, you can leave this as-is.
+
+Here are some Runbooks I have written for the most common actions we will want our Power App to be able to 'execute':
+
+1) List all LDS Users
+2) Add a new user
+3) Delete a user
+4) Unlock a user account
+5) Reset a user account password
+
 
 
