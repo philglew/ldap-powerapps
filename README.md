@@ -207,8 +207,8 @@ This solution uses PowerShell 5.1.
 
 Here are some Runbooks I have written for the most common actions we will want our Power App to be able to 'execute':
 
-1) [List all LDS Users](listldsusers.ps1)  - this Runbook lists all LDS users (Username, Email, Company and Group Memberships) and snapshots them into a Dataverse table, for fast and easy visualisation in-app and via dashboard.
-2) Add a new user - this Runbook adds a new User to the LDS, using the input of Username, Email, Company and Group Membership, but can be customised to add additional parameters and attributes. The Dataverse authentication credentials are never exposed in code; rather, they are utilised at runtime from the Azure Key Vault.
+1) [List all LDS Users](listldsusers.ps1)  - this Runbook lists all LDS users (Username, Email, Company and Group Memberships) and snapshots them into a Dataverse table, for fast and easy visualisation in-app and via dashboard. The Dataverse authentication credentials are never exposed in code; rather, they are utilised at runtime from the Azure Key Vault.
+2) Add a new user - this Runbook adds a new User to the LDS, using the input of Username, Email, Company and Group Membership, but can be customised to add additional parameters and attributes. 
 3) Delete a user - this Runbook 'deletes' a User on the LDS, by moving their account to a 'Deleted Users' container.
 4) Unlock a user account - this Runbook unlocks a specific User on the LDS, and returns success output to the app.
 5) Reset a user account password - this Runbook resets a User password to a randomly-generated string of characters and numbers, and returns them to the administrator in the app. 
